@@ -18,3 +18,12 @@ main:
     li      $v0,    5                                   # takes the input from the user
     syscall 
     move    $t0,    $v0                                 # Moves value from $v0 to $t0
+# loop to get legal number from the user
+loop1:              
+
+    # branch creation for when the number is greater than 24
+    bgt     $t0,    24,                 find_fibonacci  # find_fibonacci is called if the number is greater than 24
+
+    li      $v0,    4
+    la      $a0,    illegal_message                     # Prints the string in illegal_message when the number is illegal
+    syscall 
